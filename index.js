@@ -17,9 +17,11 @@ const { validateForm, isValidated } = require("./src/Middlewares/validation");
 const { getAppointment } = require("./src/Controlers/Appointments");
 
 server.use(express.json());
-server.use(cors());
-
-server.use(cors());
+server.use(cors(
+  {
+  origin: 'http://example.com', // Replace with your allowed origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+  credentials: true, // Allow credentials }));
 
 server.post("/register", validateForm, isValidated, register);
 server.post("/login", login);
@@ -30,6 +32,6 @@ server.listen("3000", () => {
   console.log("server started");
 });
 mongoose
-  .connect("mongodb://ankitakumari3917:1KFPpmwmimmqJ0rb@ac-h5amn6j-shard-00-00.xxh1c5c.mongodb.net:27017,ac-h5amn6j-shard-00-01.xxh1c5c.mongodb.net:27017,ac-h5amn6j-shard-00-02.xxh1c5c.mongodb.net:27017/?ssl=true&replicaSet=atlas-rsrl2c-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0")
+  .connect("mongodb+srv://runikumari10881:iJPgbrXQvUPWQGrt@cluster0.zznxcfw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
   .then((data) => console.log("database is connected"))
   .catch((error) => console.log(error));
