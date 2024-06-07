@@ -56,37 +56,6 @@ exports.register = async (req, res) => {
   }
 };
 
-// exports.register = async (req, res) => {
-//   const { name, phone, email, password, gender, category } = req.body;
-
-//   const _user = new User({ name, email, phone, password, gender, category });
-
-//   const eUser = await User.findOne({ email });
-// console.log(_user)
-
-//   if (!eUser) {
-//     try {
-//       // Save the new user to the database
-//       await _user.save();
-
-//       return res.status(201).json({
-//         message: "User registered successfully",
-//         user: _user
-
-//       });
-
-//     } catch (error) {
-//       return res.status(500).json({
-//         message: "Failed to register user",
-//         error: error.message
-//       });
-//     }
-//   } else {
-//     return res.status(400).json({
-//       message: "User already exists"
-//     });
-//   }
-// };
 
 exports.login = async (req, res) => {
   const { email, password, category } = req.body;
